@@ -1,0 +1,28 @@
+<navigation-default  show_bol='{{true}}'></navigation-default>
+
+<!--pages/login/login2.wxml-->
+<!-- <view class="container">
+  <view class="content">
+    <view wx:for='{{list}}' wx:for-item='items' wx:for-index='index' wx:key='index'>
+      <view class="interestTitle">{{items.title}}</view>
+      <view class="interestList ov">
+        <view class='{{item.flag==1?"interestListActive":""}}' wx:for='{{items.list}}' wx:for-item='item' wx:for-index='inde' wx:key='inde' bindtap="select" data-index="{{index}}" data-inde="{{inde}}">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="btn ov colorW ta">
+    <button style="width:500rpx;line-height: 70rpx;" class="btn fs36 colorW" lang='zh_CN' open-type="getPhoneNumber" bindgetphonenumber="onGotUserNumber">
+      <text>完成</text>
+    </button>
+  </view>
+</view> -->
+
+<view class="containerLogin">
+  <view class="bottom-area dfc">
+<!--     <image class="logo" src="https://mis-pv.ciif365.cn/gbhwxApp/logoCai.png"></image>
+ -->    <button bindtap="getCode" style="width:360rpx;line-height: 70rpx;" class="btn-clean btn fs24 colorW dfr dfrc" lang='zh_CN' open-type="getPhoneNumber" bindgetphonenumber="onGotUserNumber">
+      <image class="point" src="/imgs/point.png"></image>
+      <text>点击完成注册</text>
+    </button>
+  </view>
+</view>

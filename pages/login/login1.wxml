@@ -1,0 +1,66 @@
+<!--pages/login/login1.wxml-->
+<navigation-default title='注册' show_bol='{{true}}'></navigation-default>
+
+<view class="container_login">
+  <view class="content_div">
+    <view>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label wx:if='{{!item.hidden}}' class="radio radio-select {{value==index?'':'not-selected'}} radio-{{index==0?'aud':'ex'}}" wx:for="{{items}}" wx:key='index'>
+          <radio value="{{item.value}}" checked='{{item.checked}}'/>
+          <image class="user-img" src="https://mis-pv.ciif365.cn/wechatApplet/login/login_{{item.img+(value==index?'white':'gray')}}.png"></image>
+          <text style="color: {{index==value?'#fff':''}}">{{item.title}}</text>
+        </label>
+      </radio-group>
+    </view>
+    <view class="formCon" wx:if='{{value == 1}}'>
+      <view class="ta formTitle">账户</view>
+      <view class="form">
+        <view class="formInput pr">
+          <text class="pa">*</text>
+          <input placeholder="请输入您的账号" bindinput="name" value="{{name}}"></input>
+        </view>
+        <view class="formInput pr">
+          <text class="pa">*</text>
+          <input placeholder="请输入您的密码" type="password" bindinput="pwd" value="{{pwd}}"></input>
+        </view>
+      </view>
+    </view>
+
+    
+
+  </view>
+  <!-- <view wx:if='{{value == 0}}' class="agreement fs18 color666">
+    <checkbox-group bindchange="check">
+      <label><checkbox class="check" value="selected" /> 我已阅读并同意
+      <text class="color0f">《隐私权政策》</text>
+      <text class="color0f">《用户服务协议》</text>
+      </label> 
+    </checkbox-group>
+  </view> -->
+  <view class="btn ov colorW ta" style="background:#767676" wx:if='{{value == 2}}'>下一步</view>
+  <view class="btn ov colorW ta" wx:else>
+    <button wx:if='{{value==0 && canIUseGetUserProfile}}' style="line-height: 70rpx;width:100%" 
+    class="btn fs36 colorW"  bindtap="getUserProfile">
+      <text>下一步</text>
+    </button>
+    <button wx:elif='{{value==0  && canIUse}}' style="line-height: 70rpx;width:100%" class="btn fs36 colorW" lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+      <text>下一步</text>
+    </button>
+
+<!--     <view wx:if='{{value!=0 && canIUseGetUserProfile}}' bindtap="getUserProfile" style=line-height: 100rpx;margin:0 auto;" class="btn fs36 colorW" lang='zh_CN'>
+      绑定账户
+    </view>
+    <view wx:if='{{value!=0 && canIUse}}' bindtap="onGotUserInfo" style="line-height: 100rpx;margin:0 auto;" class="btn fs36 colorW" lang='zh_CN'>
+      绑定账户
+    </view> -->
+
+    <button wx:if='{{value!=0 && canIUseGetUserProfile}}' style="line-height: 70rpx;width:100%" 
+    class="btn fs36 colorW"  bindtap="getUserProfile">
+      <text>绑定账户</text>
+    </button>
+    <button wx:elif='{{value!=0 && canIUse}}' style="line-height: 70rpx;width:100%" class="btn fs36 colorW" lang='zh_CN' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+      <text>绑定账户</text>
+    </button>    
+
+  </view>
+</view>

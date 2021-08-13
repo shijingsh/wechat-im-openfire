@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "chat-input": "../../components/chat-input/chat-input"
+  },
+  "navigationBarTitleText": "会话页面"
+}

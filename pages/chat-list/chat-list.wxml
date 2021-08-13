@@ -1,0 +1,7 @@
+<import src="view/chat-item.wxml"/>
+
+<navigation-default title='我的聊天' show_bol='{{true}}'></navigation-default>
+
+<block wx:for="{{conversations}}" wx:key="conversationId">
+    <template is="chat-item" data="{{item:item}}"/>
+</block>

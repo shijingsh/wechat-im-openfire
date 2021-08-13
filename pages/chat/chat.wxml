@@ -1,0 +1,33 @@
+<!--pages/list/list.wxml-->
+<import src="../../modules/chat-page/chat-item.wxml"/>
+<import src="../../modules/chat-page/chat-page-status.wxml"/>
+
+<navigation-default title='{{chatTitle}}' show_bol='{{true}}'></navigation-default>
+
+<template is="chat-page-status" data="{{chatStatue,chatStatusContent}}"/>
+
+
+<scroll-view
+        style="height:{{pageHeight}}px;width: 100%;display: flex;flex-direction: column;margin-top: 54rpx;"
+        scroll-y="true"
+        scroll-top="{{scrollTopVal}}"
+        bindtap="resetInputStatus">
+    <block wx:for="{{chatItems}}" wx:key="index">
+        <template is="chat-item"
+                  data="{{length:chatItems.length,index:index,item:item,_myHeadUrl:_myHeadUrl,_otherHeadUrl:_otherHeadUrl}}"/>
+    </block>
+
+</scroll-view>
+<chat-input
+        id="chatInput"
+        min-voice-time="{{1}}"
+        max-voice-time="{{60}}"
+        start-time-down="{{54}}"
+        tabBarHeight="{{0}}"
+        format="mp3"
+        extra-array="{{extraArr}}"
+        bind:extraClickEvent="onExtraClickEvent"
+        bind:extraItemClickEvent="onExtraItemClickEvent"
+        bind:voiceRecordEvent="onVoiceRecordEvent"
+        bind:sendMessageEvent="onSendMessageEvent"></chat-input>
+<!--<template is="chat-input" data="{{inputObj,textMessage,showVoicePart:true}}"/>-->
